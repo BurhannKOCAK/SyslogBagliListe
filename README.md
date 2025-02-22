@@ -1,47 +1,59 @@
-#Syslog Kayıtlarını Bağlı Liste ile Yönetme
+# Syslog Reader with Linked List
+Bu Python scripti, bir sistemin log dosyasındaki en son günlük kayıtlarını okur, bağlı liste (linked list) yapısında saklar ve ekrana yazdırır. Ardından listeyi temizler.
 
-Bu proje, Linux syslog günlüklerini okumak ve bağlı liste (linked list) veri yapısı ile yönetmek için geliştirilmiştir. Python kullanılarak sistem günlükleri işlenir ve terminalde görüntülenir.
+## Proje Özeti
+* Amaç:
+Syslog dosyasından son günlük kayıtlarını okuma, bağlı liste yapısında saklama ve yazdırma.
 
-📌 Proje Özellikleri
+Kullanılan Yöntem:
+Bağlı liste yapısı (Linked List) kullanılarak log kayıtları yönetilir ve işlenir.
 
-✔️ Linux syslog dosyasını okur (/var/log/syslog)
-✔️ Bağlı liste veri yapısını kullanarak günlükleri saklar
-✔️ Günlükleri ekrana yazdırır
-✔️ Belleği temizler ve yönetimi kolaylaştırır
+Kriterler:
 
-🚀 Kurulum ve Çalıştırma
+Bağlı Liste Yapısı: Log kayıtları bağlı listeye eklenir ve sırasıyla ekrana yazdırılır.
+Dosya Okuma: Syslog dosyasından son N satır okunur (varsayılan olarak 10 satır).
+Bellek Temizliği: Kullanılmayan veriler ve bağlantılar temizlenir.
+Kullanılan Teknolojiler
+Python: Proje Python dilinde yazılmıştır.
+os: Dosya işlemleri için kullanılmıştır.
+Kurulum
+Python yüklü olduğundan emin olun. Python'u buradan indirebilirsiniz.
 
-1️⃣ Depoyu Kopyalayın
+Repo'yu klonlayın veya dosyaları bir klasöre indirin.
 
-git clone https://github.com/kullaniciadi/syslog-linked-list.git
-cd syslog-linked-list
+bash
+Copy
+Edit
+git clone https://github.com/username/repository.git
+Gerekli Python modüllerini yükleyin (eğer herhangi bir modül eksikse):
 
-2️⃣ Gereksinimler
+bash
+Copy
+Edit
+pip install -r requirements.txt
+Kullanım
+Projeyi çalıştırın ve syslog dosyasından günlük kayıtlarını okuyun:
 
-Bu proje Python 3 ile geliştirilmiştir. Sisteminizde yüklü olup olmadığını kontrol etmek için:
+bash
+Copy
+Edit
+python syslog_reader.py
+Kodu özelleştirmek isterseniz, syslog_oku fonksiyonunun satir_sayisi parametresini değiştirerek okunan satır sayısını ayarlayabilirsiniz.
 
-python3 --version
-
-3️⃣ Script'i Çalıştırın
-
-Root yetkisi ile çalıştırılmalıdır, çünkü syslog dosyalarına erişim kısıtlıdır:
-
-sudo python3 script.py
-
-📜 Kod Açıklaması
-
-Bağlı Liste Yapısı
-
-GunlukDugum: Tek yönlü bağlı listenin düğümünü temsil eder.
-
-GunlukBagliListe: Bağlı listeyi yönetir (ekleme, yazdırma, temizleme).
-
-Ana Fonksiyonlar
-
-syslog_oku(dosya_yolu, satir_sayisi): Syslog dosyasından son N satırı okur.
-
-gunluk_ekle(mesaj): Yeni bir günlük ekler.
-
-gunlukleri_yazdir(): Günlükleri terminalde görüntüler.
-
-gunlukleri_temizle(): Bağlı listeyi temizler ve belleği boşaltır.
+python
+Copy
+Edit
+gunlukler = syslog_oku(syslog_yolu, 10)  # Son 10 satırı oku
+Kod Açıklamaları
+1. GunlukDugum Sınıfı
+Bu sınıf, bağlı listedeki her bir günlük kaydını temsil eder.
+Her düğüm bir günlük mesajı (mesaj) ve bir işaretçi (sonraki) içerir.
+2. GunlukBagliListe Sınıfı
+Bağlı listeyi yönetir ve günlükleri ekler, yazdırır ve temizler.
+gunluk_ekle: Yeni bir günlük kaydını listenin başına ekler.
+gunlukleri_yazdir: Listeyi ekrana yazdırır.
+gunlukleri_temizle: Belleği temizler.
+3. syslog_oku Fonksiyonu
+Syslog dosyasından belirli sayıda satırı okur ve döndürür.
+4. ana Fonksiyonu
+Ana program işlevi olarak günlükleri okur, listeye ekler ve yazdırır.
