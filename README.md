@@ -13,8 +13,7 @@ Bu proje, Linux syslog günlüklerini okumak ve bağlı liste (linked list) veri
 
 1️⃣ Depoyu Kopyalayın
 
-git clone https://github.com/kullaniciadi/syslog-linked-list.git
-cd syslog-linked-list
+https://github.com/BurhannKOCAK/SyslogBagliListe/blob/main/Syslog/main.py
 
 2️⃣ Python Gereksinimi
 
