@@ -65,8 +65,7 @@ Feb 22 10:15:37 kernel: [  242.500000] USB device connected
 - **/var/log/syslog** dosyasını okumak için **root yetkileri** gerekebilir.
 - Başka günlük dosyalarını okumak için `syslog_oku()` fonksiyonunu değiştirebilirsiniz.
 
-## Lisans
-Bu proje açık kaynaklıdır ve MIT Lisansı altında sunulmaktadır.
+
 
 
 
